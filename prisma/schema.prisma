@@ -1,0 +1,131 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Tabela de Colaboradores
+model Colaborador {
+  id                    Int      @id @default(autoincrement())
+  nome                  String
+  cpf                   String   @unique
+  dataNascimento        DateTime
+  genero                String?
+  estadoCivil           String?
+  nacionalidade         String?
+  
+  // Contato
+  email                 String   @unique
+  telefone              String
+  celular               String?
+  telefoneEmergencia    String?
+  
+  // Endereço
+  cep                   String?
+  logradouro            String?
+  numero                String?
+  complemento           String?
+  bairro                String?
+  cidade                String?
+  estado                String?
+  
+  // Informações Profissionais
+  cargo                 String
+  departamento          String
+  dataAdmissao          DateTime
+  tipoContrato          String
+  salario               Float
+  status                String   @default("ativo")
+  observacoes           String?
+  
+  // Documentos
+  rg                    String?
+  orgaoEmissor          String?
+  pis                   String?
+  ctps                  String?
+  tituloEleitor         String?
+  reservista            String?
+  
+  // Relacionamentos
+  ferias                Ferias[]
+  documentos            Documento[]
+  
+  // Timestamps
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  
+  @@map("colaboradores")
+}
+
+// Tabela de Férias
+model Ferias {
+  id              Int         @id @default(autoincrement())
+  colaboradorId   Int
+  colaborador     Colaborador @relation(fields: [colaboradorId], references: [id], onDelete: Cascade)
+  dataInicio      DateTime
+  dataFim         DateTime
+  tipoFerias      String      @default("ferias_anuais")
+  status          String      @default("pendente") // aprovado, pendente, reprovado
+  observacoes     String?
+  aprovadoPor     String?
+  dataAprovacao   DateTime?
+  
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  @@map("ferias")
+}
+
+// Tabela de Documentos
+model Documento {
+  id              Int         @id @default(autoincrement())
+  nome            String
+  colaboradorId   Int
+  colaborador     Colaborador @relation(fields: [colaboradorId], references: [id], onDelete: Cascade)
+  tipo            String      // contrato, identidade, militar, academico, saude
+  categoria       String
+  dataUpload      DateTime    @default(now())
+  dataVencimento  DateTime?
+  status          String      @default("valido")
+  tamanho         String?
+  caminhoArquivo  String?
+  observacoes     String?
+  
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  @@map("documentos")
+}
+
+// Tabela de Departamentos
+model Departamento {
+  id          Int      @id @default(autoincrement())
+  nome        String   @unique
+  descricao   String?
+  ativo       Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("departamentos")
+}
+
+// Tabela de Cargos
+model Cargo {
+  id          Int      @id @default(autoincrement())
+  nome        String   @unique
+  descricao   String?
+  nivel       Int?
+  ativo       Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("cargos")
+}
