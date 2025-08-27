@@ -48,10 +48,12 @@ export default function FeriasPendentes() {
       const response = await fetch('/api/ferias?status=pendente');
       if (response.ok) {
         const data = await response.json();
-        setFerias(data);
+        // A API retorna { ferias: [...], pagination: {...} }
+        setFerias(data.ferias || []);
       }
     } catch (error) {
       console.error('Erro ao buscar férias pendentes:', error);
+      setFerias([]);
     } finally {
       setLoading(false);
     }

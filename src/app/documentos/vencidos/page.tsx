@@ -47,10 +47,12 @@ export default function DocumentosVencidos() {
       const response = await fetch('/api/documentos?status=vencido');
       if (response.ok) {
         const data = await response.json();
-        setDocumentos(data);
+        // A API pode retornar { documentos: [...], pagination: {...} } ou array direto
+        setDocumentos(data.documentos || data || []);
       }
     } catch (error) {
       console.error('Erro ao buscar documentos vencidos:', error);
+      setDocumentos([]);
     } finally {
       setLoading(false);
     }

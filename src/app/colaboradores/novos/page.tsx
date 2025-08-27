@@ -42,10 +42,12 @@ export default function NovosCadastros() {
       const response = await fetch('/api/colaboradores?novos=true');
       if (response.ok) {
         const data = await response.json();
-        setColaboradores(data);
+        // A API pode retornar { colaboradores: [...], pagination: {...} } ou array direto
+        setColaboradores(data.colaboradores || data || []);
       }
     } catch (error) {
       console.error('Erro ao buscar novos cadastros:', error);
+      setColaboradores([]);
     } finally {
       setLoading(false);
     }

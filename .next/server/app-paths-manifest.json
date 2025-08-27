@@ -1,6 +1,8 @@
 {
   "/api/colaboradores/route": "app/api/colaboradores/route.js",
   "/api/dashboard/route": "app/api/dashboard/route.js",
+  "/api/ferias/route": "app/api/ferias/route.js",
   "/colaboradores/listar/page": "app/colaboradores/listar/page.js",
+  "/ferias/pendentes/page": "app/ferias/pendentes/page.js",
   "/page": "app/page.js"
 }

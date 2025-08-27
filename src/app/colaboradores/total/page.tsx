@@ -56,7 +56,8 @@ export default function TotalColaboradores() {
 
       if (colabResponse.ok) {
         const colabData = await colabResponse.json();
-        setColaboradores(colabData);
+        // A API pode retornar { colaboradores: [...], pagination: {...} } ou array direto
+        setColaboradores(colabData.colaboradores || colabData || []);
       }
 
       if (statsResponse.ok) {
@@ -65,6 +66,7 @@ export default function TotalColaboradores() {
       }
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
+      setColaboradores([]);
     } finally {
       setLoading(false);
     }
