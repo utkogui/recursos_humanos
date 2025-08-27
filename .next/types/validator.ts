@@ -59,10 +59,22 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/colaboradores/listar">
 }
 
+// Validate ../../src/app/colaboradores/novos/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/colaboradores/novos/page.js")
+  handler satisfies AppPageConfig<"/colaboradores/novos">
+}
+
 // Validate ../../src/app/colaboradores/page.tsx
 {
   const handler = {} as typeof import("../../src/app/colaboradores/page.js")
   handler satisfies AppPageConfig<"/colaboradores">
+}
+
+// Validate ../../src/app/colaboradores/total/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/colaboradores/total/page.js")
+  handler satisfies AppPageConfig<"/colaboradores/total">
 }
 
 // Validate ../../src/app/documentos/listar/page.tsx
@@ -77,6 +89,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/documentos">
 }
 
+// Validate ../../src/app/documentos/vencidos/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/documentos/vencidos/page.js")
+  handler satisfies AppPageConfig<"/documentos/vencidos">
+}
+
 // Validate ../../src/app/ferias/listar/page.tsx
 {
   const handler = {} as typeof import("../../src/app/ferias/listar/page.js")
@@ -87,6 +105,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   const handler = {} as typeof import("../../src/app/ferias/page.js")
   handler satisfies AppPageConfig<"/ferias">
+}
+
+// Validate ../../src/app/ferias/pendentes/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/ferias/pendentes/page.js")
+  handler satisfies AppPageConfig<"/ferias/pendentes">
 }
 
 // Validate ../../src/app/ferias/solicitar/page.tsx

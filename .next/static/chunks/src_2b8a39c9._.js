@@ -13,24 +13,31 @@ const ROUTES = {
     DASHBOARD: '/',
     // Colaboradores
     COLABORADORES: {
-        LISTAR: '/colaboradores',
+        PRINCIPAL: '/colaboradores',
+        LISTAR: '/colaboradores/listar',
         CADASTRAR: '/colaboradores/cadastrar',
         EDITAR: (id)=>"/colaboradores/editar/".concat(id),
-        VISUALIZAR: (id)=>"/colaboradores/".concat(id)
+        VISUALIZAR: (id)=>"/colaboradores/".concat(id),
+        TOTAL: '/colaboradores/total',
+        NOVOS: '/colaboradores/novos'
     },
     // Férias
     FERIAS: {
-        LISTAR: '/ferias',
+        PRINCIPAL: '/ferias',
+        LISTAR: '/ferias/listar',
         SOLICITAR: '/ferias/solicitar',
         EDITAR: (id)=>"/ferias/editar/".concat(id),
-        VISUALIZAR: (id)=>"/ferias/".concat(id)
+        VISUALIZAR: (id)=>"/ferias/".concat(id),
+        PENDENTES: '/ferias/pendentes'
     },
     // Documentos
     DOCUMENTOS: {
-        LISTAR: '/documentos',
+        PRINCIPAL: '/documentos',
+        LISTAR: '/documentos/listar',
         UPLOAD: '/documentos/upload',
         EDITAR: (id)=>"/documentos/editar/".concat(id),
-        VISUALIZAR: (id)=>"/documentos/".concat(id)
+        VISUALIZAR: (id)=>"/documentos/".concat(id),
+        VENCIDOS: '/documentos/vencidos'
     },
     // Relatórios
     RELATORIOS: {

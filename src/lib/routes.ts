@@ -9,6 +9,8 @@ export const ROUTES = {
     CADASTRAR: '/colaboradores/cadastrar',
     EDITAR: (id: number) => `/colaboradores/editar/${id}`,
     VISUALIZAR: (id: number) => `/colaboradores/${id}`,
+    TOTAL: '/colaboradores/total',
+    NOVOS: '/colaboradores/novos',
   },
   
   // Férias
@@ -18,6 +20,7 @@ export const ROUTES = {
     SOLICITAR: '/ferias/solicitar',
     EDITAR: (id: number) => `/ferias/editar/${id}`,
     VISUALIZAR: (id: number) => `/ferias/${id}`,
+    PENDENTES: '/ferias/pendentes',
   },
   
   // Documentos
@@ -27,6 +30,7 @@ export const ROUTES = {
     UPLOAD: '/documentos/upload',
     EDITAR: (id: number) => `/documentos/editar/${id}`,
     VISUALIZAR: (id: number) => `/documentos/${id}`,
+    VENCIDOS: '/documentos/vencidos',
   },
   
   // Relatórios

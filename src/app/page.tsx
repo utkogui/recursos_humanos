@@ -197,44 +197,52 @@ export default function Home() {
             
             <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
               <Col xs={24} sm={12} lg={6}>
-                <Card>
-                  <Statistic
-                    title="Total de Colaboradores"
-                    value={dashboardData?.estatisticas.totalColaboradores || 0}
-                    prefix={<TeamOutlined />}
-                    valueStyle={{ color: '#3f8600' }}
-                  />
-                </Card>
+                <Link href={ROUTES.COLABORADORES.TOTAL} style={{ textDecoration: 'none' }}>
+                  <Card hoverable style={{ cursor: 'pointer' }}>
+                    <Statistic
+                      title="Total de Colaboradores"
+                      value={dashboardData?.estatisticas.totalColaboradores || 0}
+                      prefix={<TeamOutlined />}
+                      valueStyle={{ color: '#3f8600' }}
+                    />
+                  </Card>
+                </Link>
               </Col>
               <Col xs={24} sm={12} lg={6}>
-                <Card>
-                  <Statistic
-                    title="Férias Pendentes"
-                    value={dashboardData?.estatisticas.feriasPendentes || 0}
-                    prefix={<CalendarOutlined />}
-                    valueStyle={{ color: '#cf1322' }}
-                  />
-                </Card>
+                <Link href={ROUTES.FERIAS.PENDENTES} style={{ textDecoration: 'none' }}>
+                  <Card hoverable style={{ cursor: 'pointer' }}>
+                    <Statistic
+                      title="Férias Pendentes"
+                      value={dashboardData?.estatisticas.feriasPendentes || 0}
+                      prefix={<CalendarOutlined />}
+                      valueStyle={{ color: '#cf1322' }}
+                    />
+                  </Card>
+                </Link>
               </Col>
               <Col xs={24} sm={12} lg={6}>
-                <Card>
-                  <Statistic
-                    title="Documentos Vencidos"
-                    value={dashboardData?.estatisticas.documentosVencidos || 0}
-                    prefix={<FileTextOutlined />}
-                    valueStyle={{ color: '#faad14' }}
-                  />
-                </Card>
+                <Link href={ROUTES.DOCUMENTOS.VENCIDOS} style={{ textDecoration: 'none' }}>
+                  <Card hoverable style={{ cursor: 'pointer' }}>
+                    <Statistic
+                      title="Documentos Vencidos"
+                      value={dashboardData?.estatisticas.documentosVencidos || 0}
+                      prefix={<FileTextOutlined />}
+                      valueStyle={{ color: '#faad14' }}
+                    />
+                  </Card>
+                </Link>
               </Col>
               <Col xs={24} sm={12} lg={6}>
-                <Card>
-                  <Statistic
-                    title="Novos Cadastros"
-                    value={dashboardData?.estatisticas.novosCadastros || 0}
-                    prefix={<PlusOutlined />}
-                    valueStyle={{ color: '#1890ff' }}
-                  />
-                </Card>
+                <Link href={ROUTES.COLABORADORES.NOVOS} style={{ textDecoration: 'none' }}>
+                  <Card hoverable style={{ cursor: 'pointer' }}>
+                    <Statistic
+                      title="Novos Cadastros"
+                      value={dashboardData?.estatisticas.novosCadastros || 0}
+                      prefix={<PlusOutlined />}
+                      valueStyle={{ color: '#1890ff' }}
+                    />
+                  </Card>
+                </Link>
               </Col>
             </Row>
 
